@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    a: true,
     start: 0,
     end:20,
     // loading: false,

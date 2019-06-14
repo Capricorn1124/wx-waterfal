@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<import src="../../conponents/waterfall.wxml"/>
+
+  <view class="wrapper">
+      
+    <view class="content">
+        
+        <scroll-view scroll-y="true"  style="height: {{ windowHeight }}px; width: {{ windowWidth }}px;" bindscrolltolower="loadMore" >
+            <view class="left">
+              <view wx:for="{{trips}}" wx:for-item="item" wx:key="" >
+                <template is="waterfall"  wx:if="{{index%2==0}}" data="{{trip:item}}" />
+              </view>
+            </view>
+      
+        
+            <view class="right">
+              <view wx:for="{{trips}}" wx:for-item="item" wx:key="">
+                <template is="waterfall"  wx:if="{{index%2==1}}" data="{{ trip:item}}" />
+              </view>
+            </view>
+        </scroll-view>
+
+     </view>
+        
+    </view>

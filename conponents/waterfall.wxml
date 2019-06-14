@@ -1,0 +1,18 @@
+<!--conponents/history.wxml-->
+<text>conponents/waterfall.wxml</text>
+
+<template name="waterfall" class="waterfall_item">
+
+  <view class="waterfall_item">
+    <image class="item-img" src="{{trip.cover_image}}" mode="widthFix"></image>
+    <view class="item-title-box">
+      <view url="url" class="item-title">{{trip.name}}</view> 
+    </view>
+    <view class="waterfall_auth_name">
+      <image class="item-ava" src="{{trip.cover_image_default}}" ></image>    
+      <text class="name-title">{{trip.desc}}</text>
+      <text class="name-title">2019-06-13</text>
+    </view>
+  </view>
+
+</template>

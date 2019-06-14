@@ -1,0 +1,55 @@
+/**index.wxss**/
+.wrapper{
+  margin-top:10px;
+  padding-top:5px;
+  border-top:1px #dadada solid;
+}
+
+.content{
+  clear:both;
+  overflow: hidden;
+  width:100%;
+}
+.content .left,.content .right{
+  width:49%;
+}
+
+.content .left{
+  float:left;
+}
+.content .right{
+  float:right;
+}
+.waterfall_item{
+  display: inline-block;
+  background:#fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width:100%;
+}
+.item-img{
+  width:100%;
+  border-radius: 10px 10px 0 0 ;
+}
+.item-title{
+  padding:10px;
+  font-size: 14px;
+  font-family: 'PingFang SC-Medium';
+  color: #1e1e1e;
+}
+.item-ava{
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  float:left;
+  margin-right:10px;
+}
+.waterfall_auth_name{
+  padding:0 0 10px 10px;
+}
+.name-title{
+  font-size:12px;
+  font-family: 'PingFang SC-Medium';
+  color: #1e1e1e;
+  display: block;
+}

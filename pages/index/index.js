@@ -4,9 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    a:true,
     start: 0,
-    end:20,
-    // loading: false,
     msgList:[ {
       "cover_image": "http://photos.breadtrip.com/covers_2017_09_18_f2cc5fd8dcbd45d1b9dcf0755aa0f4d6.jpeg?imageView/2/w/960/",
       "cover_image_default": "http://photos.breadtrip.com/photo_2017_09_06_f4593831243bc347087e763f76241606.jpg?imageView/2/w/960/q/85",
@@ -649,32 +648,44 @@ Page({
       "cover_image_default": "http://photos.breadtrip.com/photo_2017_09_06_f4593831243bc347087e763f76241606.jpg?imageView/2/w/960/q/85",
       "name": "陪你去看世界NO.1：🇲🇾马来西亚透清凉",
       "desc": "热门游记"
-    }],
+    }, {
+        "cover_image": "http://photos.breadtrip.com/photo_2017_12_20_c67f2dae33301416e6fbe9c2e3556899.jpg?imageView/1/w/640/h/480/q/85",
+        "cover_image_default": "http://photos.breadtrip.com/photo_2017_12_19_f4db0d4d325c87f78b208ffff2780815.jpg?imageView/2/w/960/q/85",
+        "name": "花园之国--哥斯达黎加",
+        "desc": "热门游记"
+      },
+      {
+        "cover_image": "http://photos.breadtrip.com/photo_2017_12_20_c67f2dae33301416e6fbe9c2e3556899.jpg?imageView/1/w/640/h/480/q/85",
+        "cover_image_default": "http://photos.breadtrip.com/photo_2017_12_19_f4db0d4d325c87f78b208ffff2780815.jpg?imageView/2/w/960/q/85",
+        "name": "花园之国--哥斯达黎加",
+        "desc": "热门游记"
+      }],
     trips: []
   },
   getMsglist(){
     var temp=[],start=this.data.start;
     if(start<this.data.msgList.length){
+      console.error('小于')
       wx.showLoading({
         title: "加载中"
       });
-       for(var i=start;i<start+20;i++){
+      var b = (this.data.msgList.length-this.data.start<20) ? (this.data.msgList.length-this.data.start):20
+      console.error('>>>b', b)
+       for(var i=start;i<start+b;i++){
          temp.push(this.data.msgList[i]);
        }
        console.log("start:"+this.data.start)
        console.log(this.data.trips.length)
-       this.setData({
-         trips:this.data.trips.concat(temp),
-         start:this.data.start+20
-       })
-      //  this.setData({
-      //   start:this.data.trips.length
-      // })
-       
+      this.setData({
+        trips:this.data.trips.concat(temp),
+        start:this.data.start+b
+      })
        console.log("set后start:"+this.data.start)
        console.log(this.data.trips.length)
        console.log(this.data.trips)
        wx.hideLoading();
+    }else{
+      console.error('>>>大于')
     }
   },
   onLoad: function () {
@@ -682,6 +693,5 @@ Page({
   },
   onReachBottom: function() {
     this.getMsglist();
-    console.log("请求一次")
   }
 })
